@@ -67,12 +67,14 @@ nav {
   width: 100vw;
   height: 10vh;
   background: lightskyblue;
-  border-radius: 8px;
 }
 button {
   border: none;
   border-radius: 8px;
   height: 5vh;
   width: 10vw;
+}
+body {
+  margin: 0px;
 }
 </style>

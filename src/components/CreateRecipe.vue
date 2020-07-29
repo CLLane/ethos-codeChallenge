@@ -1,4 +1,5 @@
 <template>
+<div>
   <form>
     <label for="title">Title</label>
     <input id="title" v-model="title" placeholder="Title of recipe..." />
@@ -8,7 +9,6 @@
     <textarea id="instructions" v-model="instructions" placeholder="Detailed instructions... "></textarea>
     <label for="rating">Rating:</label>
     <select id="rating" v-model.number="rating">
-      <option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -21,6 +21,7 @@
     >Create Recipe Card</button>
     <button v-on:click="clearInputs">Clear</button>
   </form>
+  </div>
 </template>
 
 <script>
@@ -39,7 +40,6 @@ export default {
       e.preventDefault();
       this.$emit(
         "create-card",
-        e,
         this.title,
         this.ingredients,
         this.instructions,
@@ -47,8 +47,7 @@ export default {
       );
       this.clearInputs();
     },
-    clearInputs(e) {
-      e.preventDefault();
+    clearInputs() {
       this.title = "";
       this.ingredients = "";
       this.instructions = "";
@@ -63,5 +62,10 @@ export default {
 form {
   display: flex;
   flex-direction: column;
+}
+div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 </style>

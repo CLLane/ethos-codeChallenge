@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <button v-if="route !== 'create'" v-on:click="route = 'create'">Create Recipe</button>
-      <CreateRecipe v-if="route === 'create'" :function="createRecipeCard"></CreateRecipe>
+      <CreateRecipe v-if="route === 'create'" @create-card="createRecipeCard"></CreateRecipe>
       <button v-on:click="route = 'search'">Search Recipes</button>
       <button v-on:click="route = 'browse'">Browse Recipes</button>
     </nav>
@@ -21,8 +21,9 @@ export default {
     }
   },
   methods: {
-    createRecipeCard( title, ingredients, instructions ) {
-
+    createRecipeCard(e, title, ingredients, instructions, rating ) {
+      const card = {title, ingredients, instructions, rating}
+      this.cards.push(card)
     }
   },
   components: {

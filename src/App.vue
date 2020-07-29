@@ -3,9 +3,9 @@
     <nav>
       <button v-if="route !== 'create'" v-on:click="route = 'create'">Create Recipe</button>
       <button v-else disabled>Create Recipe</button>
-      <button v-if="route !== 'search'" v-on:click="route = 'search'" >Search Recipes</button>
+      <button v-if="route !== 'search'" v-on:click="route = 'search'">Search Recipes</button>
       <button v-else disabled>Search Recipe</button>
-      <button v-if="route !== 'browse'" v-on:click="route = 'browse'" >Browse Recipes</button>
+      <button v-if="route !== 'browse'" v-on:click="route = 'browse'">Browse Recipes</button>
       <button v-else disabled>Browse Recipe</button>
     </nav>
     <CreateRecipe v-if="route === 'create'" @create-card="createRecipeCard"></CreateRecipe>
@@ -61,7 +61,6 @@ export default {
 <style scope>
 nav {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
   align-items: center;
   width: 100vw;

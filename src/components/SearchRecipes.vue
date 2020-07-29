@@ -60,32 +60,32 @@ export default {
 };
 </script>
 <style scoped>
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-}
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 18vw;
-  border: 2px solid lightgray;
-  border-radius: 8px;
-  margin: 2vh;
-}
-select,
-input {
-  margin: 1.5vw;
-  border-radius: 8px;
-  height: 3vh;
-  border: 2px solid lightgray;
-}
-.results-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18vw;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    margin: 2vh;
+  }
+  select,
+  input {
+    margin: 1.5vw;
+    border-radius: 8px;
+    height: 3vh;
+    border: 2px solid lightgray;
+  }
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }
 </style>

@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Form from './components/Form.vue'
+import CreateRecipe from './components/CreateRecipe.vue'
 
 export default {
   name: 'App',
   components: {
-    Form
+    CreateRecipe
   }
 }
 </script>

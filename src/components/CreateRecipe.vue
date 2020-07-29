@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="form-container">
   <form>
     <label for="title">Title</label>
     <input id="title" v-model="title" placeholder="Title of recipe..." />
@@ -15,11 +15,15 @@
       <option>4</option>
       <option>5</option>
     </select>
-    <button
-      v-if="title && instructions && ingredients && rating"
-      v-on:click="createCard"
-    >Create Recipe Card</button>
-    <button v-on:click="clearInputs">Clear</button>
+    <div class="button-container">
+      <button
+        v-if="title && instructions && ingredients && rating"
+        v-on:click="createCard"
+      >Create Recipe Card</button>
+      <button v-else disabled>Create Recipe Card</button>
+      <button v-if="title || instructions || ingredients || rating" v-on:click="clearInputs">Clear</button>
+      <button v-else disabled>Clear</button>
+    </div>
   </form>
   </div>
 </template>
@@ -45,15 +49,16 @@ export default {
         this.instructions,
         this.rating
       );
-      this.clearInputs();
+      this.clearInputs(e);
     },
-    clearInputs() {
+    clearInputs(e) {
+      e.preventDefault();
       this.title = "";
       this.ingredients = "";
       this.instructions = "";
       this.rating = "";
     }
-  }
+  },
 };
 </script>
 
@@ -62,10 +67,31 @@ export default {
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 50vh;
+  width: 50vw;
 }
-div {
+button {
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+}
+input, textarea, select {
+  border-radius: 8px;
+  border: 2px solid lightgray;
+}
+label {
+  font-size: 20px;
+}
+.form-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+#rating {
+  width: 5vw;
 }
 </style>

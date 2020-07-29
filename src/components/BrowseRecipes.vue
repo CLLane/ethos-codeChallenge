@@ -7,14 +7,10 @@
   </div>
   <div v-else>
     <RecipeCard @clear-card="toggleShowCard" v-bind:card="cards[cardIndex]"></RecipeCard>
-    <!-- <h1>{{cards[cardIndex]}}</h1> -->
-    <!-- <p>{{card[cardIndex][ingredients]}}</p>
-    <p>{{card[cardIndex][instructions]}}</p>
-    <p>{{card[cardIndex][rating]}}</p> -->
   </div>
 </template>
 <script>
-import RecipeCard from './RecipeCard.vue'
+import RecipeCard from "./RecipeCard.vue";
 
 export default {
   name: "BrowseRecipes",
@@ -38,9 +34,18 @@ export default {
 };
 </script>
 <style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
 article {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+h1:hover {
+  cursor: pointer;
 }
 </style>

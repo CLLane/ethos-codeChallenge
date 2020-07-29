@@ -2,14 +2,20 @@
   <div id="app">
     <nav>
       <button v-if="route !== 'create'" v-on:click="route = 'create'">Create Recipe</button>
-      <button v-on:click="route = 'search'" v-if="route !== 'search'">Search Recipes</button>
-      <button v-on:click="route = 'browse'" v-if="route !== 'browse'">Browse Recipes</button>
+      <button v-else disabled>Create Recipe</button>
+      <button v-if="route !== 'search'" v-on:click="route = 'search'" >Search Recipes</button>
+      <button v-else disabled>Search Recipe</button>
+      <button v-if="route !== 'browse'" v-on:click="route = 'browse'" >Browse Recipes</button>
+      <button v-else disabled>Browse Recipe</button>
     </nav>
     <CreateRecipe v-if="route === 'create'" @create-card="createRecipeCard"></CreateRecipe>
-    <BrowseRecipes v-bind:cards="cards" v-if="route === 'browse'"></BrowseRecipes>
-    <SearchRecipes v-bind:results="filteredCards" v-if="route === 'search'" @query-cards="searchRecipeCards" 
-    @clear-query="clearQuery"
-   ></SearchRecipes>
+    <BrowseRecipes v-if="route === 'browse'" v-bind:cards="cards"></BrowseRecipes>
+    <SearchRecipes
+      v-bind:results="filteredCards"
+      v-if="route === 'search'"
+      @query-cards="searchRecipeCards"
+      @clear-query="clearQuery"
+    ></SearchRecipes>
   </div>
 </template>
 
@@ -40,7 +46,7 @@ export default {
         }
       });
     },
-    clearQuery(){
+    clearQuery() {
       this.filteredCards = [];
     }
   },
@@ -53,15 +59,20 @@ export default {
 </script>
 
 <style scope>
-#app {
-  display: flex;
-}
 nav {
   display: flex;
-  flex-direction: column;
-  width: 33%;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background: lightskyblue;
+  border-radius: 8px;
 }
-div {
-  width: 100%;
+button {
+  border: none;
+  border-radius: 8px;
+  height: 5vh;
+  width: 10vw;
 }
 </style>
